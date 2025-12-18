@@ -1,41 +1,45 @@
+// config.js
 require('dotenv').config();
 
-const config = {
-  // Telegram Bot Token (@BotFather dan)
-  TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
-  
-  // YouTube Data API v3 Key
-  YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
-  
-  // Admin Telegram IDs
-  ADMIN_IDS: process.env.ADMIN_IDS ? process.env.ADMIN_IDS.split(',').map(id => parseInt(id.trim())) : [],
-  
-  // Database
-  DB_PATH: process.env.DB_PATH || './database.sqlite',
-  
-  // Check interval (5 minutes)
-  CHECK_INTERVAL: parseInt(process.env.CHECK_INTERVAL) || 300000,
-  
-  // Footer for free users
-  DEFAULT_FOOTER: `⚡️ Powered by "For Humo: Humo TV"
+module.exports = {
+    // Telegram Bot Token
+    TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN || "YOUR_TELEGRAM_BOT_TOKEN",
+    
+    // YouTube API Key
+    YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY || "AIzaSyBeESX2fWlgF84CEu03J38D-0ONVD7gAJU",
+    
+    // Admin Telegram IDs
+    ADMINS: process.env.ADMINS ? process.env.ADMINS.split(',').map(id => parseInt(id.trim())) : [123456789],
+    
+    // Database file
+    DATABASE_FILE: process.env.DATABASE_FILE || './humo.db',
+    
+    // Bot username
+    BOT_USERNAME: process.env.BOT_USERNAME || 'HumoTVBot',
+    
+    // Check interval (5 minutes)
+    CHECK_INTERVAL: parseInt(process.env.CHECK_INTERVAL) || 5 * 60 * 1000,
+    
+    // Free plan footer
+    FREE_PLAN_FOOTER: `⚡️ Powered by "For Humo: Humo TV"
 🔹 For Humo TG kanal: https://t.me/forhumo
 🔹 Humo TV TG kanal: https://t.me/ForHumoTV
 🌐 Rasmiy sayt: https://forhumo.uz`,
-  
-  // Plus plan
-  PLUS_PLAN_PRICE: 19990,
-  PLUS_PLAN_DAYS: 30,
-  
-  // Validate configuration
-  validate() {
-    const errors = [];
-    if (!this.TELEGRAM_BOT_TOKEN) errors.push('TELEGRAM_BOT_TOKEN not set');
-    if (!this.YOUTUBE_API_KEY) errors.push('YOUTUBE_API_KEY not set');
     
-    if (errors.length > 0) {
-      throw new Error(`Config validation failed: ${errors.join(', ')}`);
+    // Plus plan price
+    PLUS_PLAN_PRICE: 19990,
+    PLUS_PLAN_DAYS: 30,
+    
+    // Validate config
+    validate() {
+        if (!this.TELEGRAM_TOKEN || this.TELEGRAM_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN") {
+            console.warn('⚠️  TELEGRAM_TOKEN not set in .env file');
+        }
+        
+        if (!this.YOUTUBE_API_KEY || this.YOUTUBE_API_KEY === "YOUR_YOUTUBE_API_KEY") {
+            console.warn('⚠️  YOUTUBE_API_KEY not set in .env file');
+        }
+        
+        return true;
     }
-  }
 };
-
-module.exports = config;
