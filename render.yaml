@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: humo-tv-bot
+    env: node
+    buildCommand: npm install
+    startCommand: node bot/index.js
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
