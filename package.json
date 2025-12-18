@@ -1,16 +1,24 @@
 {
   "name": "humo-tv-bot",
   "version": "1.0.0",
+  "description": "Humo TV - YouTube to Telegram announcement bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["telegram", "youtube", "bot", "humo"],
+  "author": "For Humo Team",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.6.8",
-    "node-telegram-bot-api": "^0.64.0",  // ✅ FAQAT BITTASI
+    "node-telegram-bot-api": "^0.64.0",
     "sqlite3": "^5.1.6",
     "node-cron": "^3.0.3",
-    "dotenv": "^16.0.0"  // ✅ QO'SHILDI
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
