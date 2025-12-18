@@ -1,24 +1,16 @@
-// package.json
 {
   "name": "humo-tv-bot",
   "version": "1.0.0",
-  "description": "Professional Telegram bot for YouTube video announcements",
-  "main": "bot/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot/index.js",
-    "dev": "nodemon bot/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.64.0",
-    "axios": "^1.6.0",
+    "axios": "^1.6.8",
+    "node-telegram-bot-api": "^0.64.0",  // ✅ FAQAT BITTASI
     "sqlite3": "^5.1.6",
-    "dotenv": "^16.3.0",
-    "node-cron": "^3.0.3"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.0.0"  // ✅ QO'SHILDI
   }
 }
