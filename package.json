@@ -1,28 +1,20 @@
-// package.json
 {
   "name": "humo-tv-bot",
   "version": "1.0.0",
-  "description": "Humo TV - YouTube to Telegram announcement bot",
-  "main": "index.js",
+  "main": "bot/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"No tests specified\" && exit 0"
+    "start": "node bot/index.js",
+    "dev": "nodemon bot/index.js",
+    "vercel-build": "echo 'Building for Vercel...'"
   },
-  "keywords": ["telegram", "youtube", "bot", "humo", "uzbekistan"],
-  "author": "For Humo Team",
-  "license": "MIT",
   "dependencies": {
     "node-telegram-bot-api": "^0.64.0",
-    "axios": "^1.6.0",
+    "axios": "^1.6.8",
     "sqlite3": "^5.1.6",
     "node-cron": "^3.0.3",
-    "dotenv": "^16.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.0"
+    "dotenv": "^16.3.0"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   }
 }
